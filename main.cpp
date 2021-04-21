@@ -5,8 +5,11 @@
 #include <iostream>
 #include <ctype.h>
 #include <string.h>
+#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
+
 
 int main() 
 {
@@ -23,11 +26,36 @@ int main()
     {
       str[i] = toupper(str[i]);
     }
-
   }
 	
   //Output sentence with capitalized i
   cout << str;
+  
+  //Part 2
+  //Initalize variables
+  vector<string> animals;
+  string input = "";
+  string exit = "";
+
+  do
+  {
+    cout << "\n\nEnter your list of Animals(type 'end' to exit):\t ";
+    cin >> input;
+    animals.push_back(input);
+
+    exit = input;
+  }while(exit != "end");
+
+  //Output the Animals list in decending order.
+  cout << "\n\nYour list of Animals in Descending order: "; 
+  
+  sort(animals.begin(), animals.end(), greater<string>());
+
+  for (int i = 0; i < animals.size(); i++)
+  {
+    cout << animals[i] << "\n ";
+    cout << endl;
+  }
   
   return 0;
 }
